@@ -1,0 +1,94 @@
+// scss variable- user defined variables
+$bgColor: rgba(105, 218, 202, 0.89);
+$bgDark: rgba(7, 19, 17, 0.89);
+$txt-light: rgba(201, 216, 214, 0.89);
+$txt-dark: rgba(15, 34, 31, 0.89);
+$sass:#cd6699;
+
+*,*::before,*::after {
+  margin: 0;
+  padding: 0;
+}
+img{
+  max-width: 100%;
+  // makes images responsives
+}
+
+@mixin flex($justifyCont,$alignItem,$flexDir) {
+  display: flex;
+  justify-content: $justifyCont;
+  align-items: $alignItem;
+  flex-direction: $flexDir;
+  // height: 100%;
+
+}
+
+.container {
+  width: min(1200px, 80%);
+  margin: 0 auto;
+  border: 2px solid;
+  // background: $bgColor;
+}
+header{
+  background: $bgColor url(../images/pic1.png) center no-repeat fixed;
+  background-size: cover;
+  background-blend-mode: multiply;
+  height: 100vh;
+  @include flex(center,center, row);
+  // h1{
+  //   // margin: auto
+  // }
+
+}
+section {
+  padding: 10% 20%;
+}
+
+.dart {
+  background-color: $txt-light;
+  h1 {
+    font-size: 5rem;
+    font-weight: 800;
+  
+    &:nth-child(2) {
+      color: $sass;
+      // border: 2px solid brown;
+      margin: .5em 0;
+      position: relative;
+      // try uncommenting the line above and see the difference
+      &::before{
+        position: absolute;
+        content: '';
+        background-image: url(../images/sass.png);
+        width: 100px;
+        height: 100px;
+        background-size: 100px 100px;
+        background-repeat: no-repeat;
+
+        // border-radius: 50%;
+        left: -20%;
+        // top: 0;
+      }
+    }
+  }
+}
+.main{
+  @include flex(space-between,center,row);
+  background-color: $bgDark;
+  color: $txt-light;
+
+
+  h1{
+    flex-basis: 30%;
+    font-size: 3rem;
+    font-weight: 800;
+    border: 2px solid
+  }
+  .image{
+    flex-basis: 20%;
+    // img{
+    //   // width: 60%;
+    // }
+  }
+
+}
